@@ -29,7 +29,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     SurfaceView surfaceView;
-    Button scanButton;
+    TextView scanButton;
     private BarcodeDetector barcodeDetector;
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() { // Функция инициализации компонентов взаимодействия
-        scanButton = findViewById(R.id.ScanButton);
+        scanButton = findViewById(R.id.textView);
         surfaceView = findViewById(R.id.surfaceView);
 
 
@@ -111,8 +111,9 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                                 intentData = barcodes.valueAt(0).displayValue;
-                                scanButton.setClickable(true);
-                                scanButton.setText(intentData);
+                            Intent infoPage = new Intent(MainActivity.this,AboutActivity.class);
+                            infoPage.putExtra("info",intentData);
+                            startActivity(infoPage);
                         }
                     });
 
@@ -124,17 +125,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void ScanPin(View view){ //Используем пинкод
-        EditText code = (EditText)(findViewById(R.id.editTextNumber));
-        Intent infoPage = new Intent(MainActivity.this,AboutActivity.class);
-        infoPage.putExtra("info",code.getText());
-        startActivity(infoPage);
-    }
 
     public void ScanCode(View view){ // Используем QR
-        Intent infoPage = new Intent(MainActivity.this,AboutActivity.class);
-        infoPage.putExtra("info",intentData);
-        startActivity(infoPage);
+
     }
     @Override
     protected void onPause() { //Приложение свернуто - Камера останавливается

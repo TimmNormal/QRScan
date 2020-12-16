@@ -17,7 +17,6 @@ public class AboutActivity extends AppCompatActivity {
 
     }
     public void API(){
-        TextView mainText = findViewById(R.id.InfoText);
-        mainText.setText(userData);
+
     }
 }

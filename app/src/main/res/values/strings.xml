@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QrScanner</string>
+    <string name ="Disclaimer">Делитесь своим QR-кодом EXRApp только с людьми, которым вы доверяете. Любой пользователь, располагающий вашим QR-кодом EXRApp, может переслать его другим людям.</string>
+    <string name="StartScan">Наведите камеру на QR-код</string>
 </resources>
